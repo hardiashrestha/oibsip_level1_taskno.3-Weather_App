@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App By Shrestha Hardia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            transition: background 0.5s;
+        }
+        /* Default gradient */
+        .default-bg {
+            background: linear-gradient(to right, #e0f7fa, #80deea);
+        }
+        .hot-bg {
+            background: linear-gradient(to right, #ffeb3b, #ff9800);
+        }
+        .cold-bg {
+            background: linear-gradient(to right, #c7e6ff, #03a9f4);
+        }
+        .rainy-bg {
+            background: linear-gradient(to right, #606a72, #39a6ff);
+        }
+    </style>
+</head>
+<body class="default-bg">
+    <div class="container">
+        <h1>Weather App By Shrestha</h1>
+        <form method="POST">
+            <input type="text" name="city" placeholder="Enter city name" required>
+            <button type="submit">Get Weather</button>
+        </form>
+
+        {% if image_url %}
+            <div class="city-image">
+                <img src="{{ image_url }}" alt="Image of {{ weather_data.name }}" class="image-small">
+            </div>
+        {% endif %}
+
+        {% if weather_data %}
+            <div class="weather-info">
+                <h2>{{ weather_data.name }}</h2>
+                <img src="http://openweathermap.org/img/wn/{{ weather_data.weather[0].icon }}@2x.png" alt="Weather Icon" class="weather-icon">
+                <p>Temperature: {{ weather_data.main.temp }}°C</p>
+                <p>Pressure: {{ weather_data.main.pressure }} hPa</p>
+                <p>Humidity: {{ weather_data.main.humidity }}%</p>
+                <p>Wind Speed: {{ weather_data.wind.speed }} m/s</p>
+                <p>Description: {{ weather_data.weather[0].description | capitalize }}</p>
+            </div>
+
+            <!-- Add JavaScript to change background based on temperature -->
+            <script>
+                const temperature = {{ weather_data.main.temp }};
+                const description = "{{ weather_data.weather[0].main }}";
+
+                // Function to set background based on temperature and conditions
+                function setBackground() {
+                    const body = document.body;
+
+                    if (description.includes("Rain")) {
+                        body.className = "rainy-bg";
+                    } else if (temperature > 30) { // Hot condition (adjust as needed)
+                        body.className = "hot-bg";
+                    } else if (temperature <= 10) { // Cold condition (adjust as needed)
+                        body.className = "cold-bg";
+                    } else {
+                        body.className = "default-bg"; // Default gradient
+                    }
+                }
+
+                // Call function to set background when page loads
+                window.onload = setBackground;
+            </script>
+
+        {% elif error_message %}
+            <p class="error">{{ error_message }}</p>
+        {% endif %}
+        
+        <!-- Add footer or additional information if needed -->
+        <footer style="text-align:center; margin-top:20px;">
+            <small>Weather data provided by OpenWeatherMap</small>
+        </footer>
+
+    </div>
+</body>
+</html>

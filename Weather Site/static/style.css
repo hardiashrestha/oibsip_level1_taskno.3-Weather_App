@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #e0f7fa, #80deea); /* Gradient background */
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s; /* Animation on hover */
+}
+
+.container:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+h1 {
+    text-align: center;
+    color: #00796b; /* Darker color for heading */
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #00796b; /* Match input border with theme */
+}
+
+button {
+    padding: 10px;
+    background-color: #00796b; /* Button color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s; /* Animation on hover */
+}
+
+button:hover {
+    background-color: #004d40; /* Darker shade on hover */
+}
+
+.city-image {
+    float: right; /* Aligns the image to the right */
+    margin-left: 20px; /* Space between the image and weather info */
+}
+
+.image-small {
+    width: 150px; /* Set width for small dimensions */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.weather-info {
+    margin-top: 20px;
+}
+
+.weather-icon {
+    display: block; /* Ensures the icon is on a new line */
+    margin: 10px auto; /* Centers the icon and adds some space */
+    width: 50px; /* Set a fixed width for the icon */
+}
+
+/* Card style for weather information */
+.weather-card {
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.error {
+    color: red;
+}
