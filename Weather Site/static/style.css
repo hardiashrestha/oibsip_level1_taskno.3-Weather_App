@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #e0f7fa, #80deea); /* Gradient background */
+    background: linear-gradient(to right, #e0f7fa, #80deea);
     margin: 0;
     padding: 20px;
 }
@@ -12,16 +12,16 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s; /* Animation on hover */
+    transition: transform 0.3s;
 }
 
 .container:hover {
-    transform: scale(1.02); /* Slightly enlarge on hover */
+    transform: scale(1.02);
 }
 
 h1 {
     text-align: center;
-    color: #00796b; /* Darker color for heading */
+    color: #00796b;
 }
 
 form {
@@ -33,31 +33,31 @@ input[type="text"] {
     flex-grow: 1;
     padding: 10px;
     border-radius: 4px;
-    border: 1px solid #00796b; /* Match input border with theme */
+    border: 1px solid #00796b;
 }
 
 button {
     padding: 10px;
-    background-color: #00796b; /* Button color */
+    background-color: #00796b;
     color: white;
     border: none;
     border-radius: 4px;
-    cursor: pointer; /* Change cursor on hover */
-    transition: background-color 0.3s; /* Animation on hover */
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #004d40; /* Darker shade on hover */
+    background-color: #004d40;
 }
 
 .city-image {
-    float: right; /* Aligns the image to the right */
-    margin-left: 20px; /* Space between the image and weather info */
+    float: right;
+    margin-left: 20px;
 }
 
 .image-small {
-    width: 150px; /* Set width for small dimensions */
-    height: auto; /* Maintain aspect ratio */
+    width: 150px;
+    height: auto;
 }
 
 .weather-info {
@@ -65,12 +65,11 @@ button:hover {
 }
 
 .weather-icon {
-    display: block; /* Ensures the icon is on a new line */
-    margin: 10px auto; /* Centers the icon and adds some space */
-    width: 50px; /* Set a fixed width for the icon */
+    display: block;
+    margin: 10px auto;
+    width: 50px;
 }
 
-/* Card style for weather information */
 .weather-card {
     padding: 15px;
     border-radius: 8px;
