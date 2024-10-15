@@ -12,7 +12,6 @@
             padding: 20px;
             transition: background 0.5s;
         }
-        /* Default gradient */
         .default-bg {
             background: linear-gradient(to right, #e0f7fa, #80deea);
         }
@@ -52,35 +51,31 @@
                 <p>Description: {{ weather_data.weather[0].description | capitalize }}</p>
             </div>
 
-            <!-- Add JavaScript to change background based on temperature -->
             <script>
                 const temperature = {{ weather_data.main.temp }};
                 const description = "{{ weather_data.weather[0].main }}";
 
-                // Function to set background based on temperature and conditions
                 function setBackground() {
                     const body = document.body;
 
                     if (description.includes("Rain")) {
                         body.className = "rainy-bg";
-                    } else if (temperature > 30) { // Hot condition (adjust as needed)
+                    } else if (temperature > 30) {
                         body.className = "hot-bg";
-                    } else if (temperature <= 10) { // Cold condition (adjust as needed)
+                    } else if (temperature <= 10) {
                         body.className = "cold-bg";
                     } else {
-                        body.className = "default-bg"; // Default gradient
+                        body.className = "default-bg";
                     }
                 }
 
-                // Call function to set background when page loads
                 window.onload = setBackground;
             </script>
 
         {% elif error_message %}
             <p class="error">{{ error_message }}</p>
         {% endif %}
-        
-        <!-- Add footer or additional information if needed -->
+
         <footer style="text-align:center; margin-top:20px;">
             <small>Weather data provided by OpenWeatherMap</small>
         </footer>
